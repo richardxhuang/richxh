@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.css": "/richxh/static/css/main.87c495cf.css",
+    "main.js": "/richxh/static/js/main.b91536ff.js",
+    "index.html": "/richxh/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.87c495cf.css",
+    "static/js/main.b91536ff.js"
+  ]
+}
