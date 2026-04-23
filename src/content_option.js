@@ -8,53 +8,65 @@ const introdata = {
     title: "Richard Huang",
     animated: {
         first: "Computer Science Student",
-        second: "Web Devleoper",
-        third: "Student Researcher",
+        second: "Software Engineer",
+        third: "AI Builder",
     },
     description: "",
     your_img_url: "",
 };
 
 const dataabout = {
-    title: "",
-    aboutme: ""
+    title: "A little about me",
+    aboutme: "I'm a Computer Science student at the University of Michigan focused on building scalable backend systems, AI-powered tools, and full-stack products. I enjoy working across cloud infrastructure, machine learning, and product engineering to turn complex ideas into practical software."
 };
 const worktimeline = [{
-        jobtitle: "Computer Technician",
-        where: "FUMC NPO",
-        date: "2023-Present",
+        jobtitle: "Software Development Engineer Intern",
+        where: "Amazon Web Services (AWS)",
+        date: "5.2025 - 8.2025",
     },
     {
-        jobtitle: "Software Developer",
-        where: "Snowbotix",
-        date: "2021-2022",
+        jobtitle: "Software Engineer / Student Researcher",
+        where: "SIM Driving Simulator Lab",
+        date: "1.2025 - 1.2026",
     },
     {
-        jobtitle: "Co-Founder/Head Coach",
-        where: "REBA Tennis",
-        date: "2021-Present",
+        jobtitle: "AI Software Engineer Intern",
+        where: "Avodah",
+        date: "9.2024 - 12.2024",
+    },
+];
+
+const education = [{
+        degree: "B.S. in Computer Science",
+        where: "University of Michigan",
+        date: "9.2023 - 5.2027",
+    },
+    {
+        degree: "Coursework",
+        where: "Web Systems, Computer Theory, Algorithms, Data Structures, Computer Architecture",
+        date: "GPA 3.7",
     },
 ];
 
 const skills = [{
         name: "Python",
-        value: 80,
+        value: 90,
     },
     {
         name: "C++",
         value: 85,
     },
     {
-        name: "Javascript",
-        value: 70,
+        name: "JavaScript / TypeScript",
+        value: 85,
     },
     {
-        name: "React",
-        value: 60,
+        name: "AWS (Lambda, Glue, Athena, Step Functions)",
+        value: 90,
     },
     {
-        name: "Pickleball",
-        value: 99,
+        name: "React + Flask",
+        value: 80,
     },
 ];
 
@@ -111,6 +123,7 @@ export {
     dataabout,
     dataportfolio,
     worktimeline,
+    education,
     skills,
     services,
     introdata,

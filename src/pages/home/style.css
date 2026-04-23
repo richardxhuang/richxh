@@ -108,6 +108,7 @@ section {
     cursor: pointer;
     border-radius: 0;
     margin-right: 20px;
+    isolation: isolate;
 }
 
 .ac_btn a {
@@ -116,6 +117,24 @@ section {
 
 .ac_btn:hover {
     box-shadow: 8px 8px 0px var(--text-color), -8px -8px 0px var(--text-color);
+}
+
+.ac_btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 42%;
+    left: -55%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 14%), transparent);
+    transition: transform 480ms ease;
+    transform: skewX(-22deg) translateX(0);
+    z-index: 2;
+}
+
+.ac_btn:hover::after {
+    transform: skewX(-22deg) translateX(420%);
 }
 
 .ac_btn:hover .one {
@@ -289,6 +308,11 @@ section {
     right: 0;
     display: block;
     z-index: -4; /* Move the stars behind other elements */
+    transform: translate(
+        calc(var(--mouse-x, 0) * -8px),
+        calc(var(--mouse-y, 0) * -6px)
+    );
+    transition: transform 220ms linear;
 }
 
 .twinkling {
@@ -301,6 +325,11 @@ section {
     top: 0;
     bottom: 0;
     z-index: -3; /* Move the twinkling behind other elements */
+    transform: translate(
+        calc(var(--mouse-x, 0) * -14px),
+        calc(var(--mouse-y, 0) * -10px)
+    );
+    transition: transform 260ms linear;
     
     -moz-animation: move-background 70s linear infinite;
     -ms-animation: move-background 70s linear infinite;
@@ -309,21 +338,27 @@ section {
     animation: move-background 70s linear infinite;
 }
 
-.clouds {
-    width: 10000px;
-    height: 100%;
-    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
-    background-size: 1000px 1000px;
+.clouds-canvas {
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -2; /* Move the clouds behind other elements */
-
-    -moz-animation: move-background 150s linear infinite;
-    -ms-animation: move-background 150s linear infinite;
-    -o-animation: move-background 150s linear infinite;
-    -webkit-animation: move-background 150s linear infinite;
-    animation: move-background 150s linear infinite;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    transform: translate(
+        calc(var(--mouse-x, 0) * -20px),
+        calc(var(--mouse-y, 0) * -12px)
+    );
+    transition: transform 320ms linear;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .stars,
+    .twinkling,
+    .clouds-canvas {
+        transform: none;
+        transition: none;
+    }
+
+    .ac_btn::after {
+        display: none;
+    }
+}

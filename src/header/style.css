@@ -181,10 +181,30 @@
     padding: 4px 0px;
     text-decoration: none;
     font-family: Marcellus;
+    opacity: 0.92;
+    overflow: hidden;
 }
 
 .the_menu .menu_item>a:hover {
-    color: var(--text-color-3);
+    color: var(--text-color-2);
+    opacity: 0.68;
+}
+
+.the_menu .menu_item>a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 34%;
+    left: -42%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 12%), transparent);
+    transform: skewX(-20deg);
+    transition: left 380ms ease;
+}
+
+.the_menu .menu_item>a:hover::after {
+    left: 115%;
 }
 
 @media (min-width: 768px) {

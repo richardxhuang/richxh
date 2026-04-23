@@ -6,8 +6,8 @@ import {
   dataabout,
   meta,
   worktimeline,
+  education,
   skills,
-  services,
 } from "../../content_option";
 
 export const About = () => {
@@ -25,29 +25,29 @@ export const About = () => {
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
-        {/* <Row className="sec_sp">
+        <Row className="sec_sp">
           <Col lg="5">
-            <h3 className="color_sec py-4">{dataabout.title}</h3>
+            <h3 className="color_sec py-4 section-heading">{dataabout.title}</h3>
           </Col>
           <Col lg="7" className="d-flex align-items-center">
-            <div>
+            <div className="about-copy">
               <p>{dataabout.aboutme}</p>
             </div>
           </Col>
-        </Row> */}
+        </Row>
         <Row className=" sec_sp">
           <Col lg="5">
-            <h3 className="color_sec py-4">Work Timline</h3>
+            <h3 className="color_sec py-4 section-heading">Work Timeline</h3>
           </Col>
           <Col lg="7">
-            <table className="table caption-top">
+            <table className="table table-sm timeline-table align-middle">
               <tbody>
                 {worktimeline.map((data, i) => {
                   return (
                     <tr key={i}>
                       <th scope="row">{data.jobtitle}</th>
                       <td>{data.where}</td>
-                      <td>{data.date}</td>
+                      <td className="timeline-date">{data.date}</td>
                     </tr>
                   );
                 })}
@@ -57,7 +57,27 @@ export const About = () => {
         </Row>
         <Row className="sec_sp">
           <Col lg="5">
-            <h3 className="color_sec py-4">Skills</h3>
+            <h3 className="color_sec py-4 section-heading">Education</h3>
+          </Col>
+          <Col lg="7">
+            <table className="table table-sm timeline-table align-middle">
+              <tbody>
+                {education.map((data, i) => {
+                  return (
+                    <tr key={i}>
+                      <th scope="row">{data.degree}</th>
+                      <td>{data.where}</td>
+                      <td className="timeline-date">{data.date}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </Col>
+        </Row>
+        <Row className="sec_sp">
+          <Col lg="5">
+            <h3 className="color_sec py-4 section-heading">Skills</h3>
           </Col>
           <Col lg="7">
             {skills.map((data, i) => {

@@ -2,9 +2,60 @@
     margin-bottom: calc(3rem + 5.128vw)
 }
 
+.section-heading {
+    position: relative;
+    letter-spacing: 0.02em;
+}
+
+.section-heading::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-left: 10px;
+    background: var(--text-color);
+    opacity: 0.55;
+    transform: translateY(-1px);
+}
+
+.about-copy {
+    max-width: 64ch;
+    line-height: 1.85;
+    opacity: 0.92;
+}
+
 .table td,
 .table th {
     color: var(--text-color);
+}
+
+.timeline-table {
+    margin-bottom: 0;
+}
+
+.timeline-table td,
+.timeline-table th {
+    border-color: color-mix(in srgb, var(--text-color) 14%, transparent);
+    padding: 0.82rem 0.45rem;
+    transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.timeline-table th {
+    font-weight: 600;
+}
+
+.timeline-table tr:hover td,
+.timeline-table tr:hover th {
+    transform: translateX(3px);
+    opacity: 0.98;
+}
+
+.timeline-date {
+    white-space: nowrap;
+    text-align: right;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
 }
 
 .t_border {
@@ -19,11 +70,10 @@
 }
 
 .progress {
-    height: 5px;
+    height: 7px;
     background: var(--secondary);
-    border-radius: 0;
     box-shadow: none;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     overflow: visible;
 }
 
@@ -33,16 +83,18 @@
     animation: animate-positive 2s;
     overflow: visible;
     opacity: 0.9;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-color) 20%, transparent);
 }
 
 .progress .progress-value {
     position: absolute;
-    top: -30px;
+    top: -29px;
     right: 8px;
-    font-size: 17px;
-    font-weight: bold;
-    font-style: italic;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
     color: var(--text-color);
+    opacity: 0.82;
 }
 
 @-webkit-keyframes animate-positive {

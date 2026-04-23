@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
 import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
+import CloudField from "./CloudField";
 
 export const Home = () => {
+  const homeRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      if (!homeRef.current) return;
+      const x = event.clientX / window.innerWidth - 0.5;
+      const y = event.clientY / window.innerHeight - 0.5;
+
+      homeRef.current.style.setProperty("--mouse-x", x.toFixed(3));
+      homeRef.current.style.setProperty("--mouse-y", y.toFixed(3));
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <HelmetProvider>
-      <section id="home" className="home">
+      <section id="home" className="home" ref={homeRef}>
         <Helmet>
           <meta charSet="utf-8" />
           <title> {meta.title}</title>
@@ -16,15 +33,15 @@ export const Home = () => {
         </Helmet>
 
         <div className="background-container">
-          <div class="moon">
-            <div class="light"></div>
-            <div class="texture"></div>
-            <div class="sphere"></div>
+          <div className="moon">
+            <div className="light"></div>
+            <div className="texture"></div>
+            <div className="sphere"></div>
           </div>
           <div className="stars"></div>
           <div className="twinkling"></div>
-          <div className="clouds"></div>
-          <div class="moon-background"></div>
+          <CloudField />
+          <div className="moon-background"></div>
           <div className="sphere">
             {Array.from({ length: 36 }, (_, i) => (
               <div key={i} className={`ring${i + 1}`}></div>
